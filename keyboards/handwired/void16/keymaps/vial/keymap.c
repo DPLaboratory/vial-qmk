@@ -34,10 +34,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [_BASE] = LAYOUT_ortho_4x4(
-        MACRO_ONE,   MACRO_TWO,   MACRO_THREE,    MACRO_FOR,
-        KC_TRNS,       KC_TRNS,       KC_TRNS,      KC_TRNS,
-        KC_TRNS,       KC_TRNS,       KC_TRNS,      KC_TRNS,
-        TT(_FN1),      KC_TRNS,       KC_TRNS,      KC_ENTER
+        MACRO_ONE,     MACRO_TWO,     KC_TRNS,      KC_CALC,
+        MACRO_THREE,   MACRO_FOR,     KC_TRNS,      KC_TRNS,
+        KC_VOLU,       KC_VOLD,       KC_MUTE,      KC_MSTP,      
+        TT(_FN1),      KC_TRNS,       KC_PSCR,      KC_ENTER
     ),
 
     [_FN1] = LAYOUT_ortho_4x4(
@@ -85,7 +85,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       process_helper(record);
       break;
     case MACRO_TWO:
-      process_mouse_turbo_click2(record);
+      //process_mouse_turbo_click2(record);
       break;
 
     case MACRO_THREE:

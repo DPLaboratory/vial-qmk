@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include "features/helper.h"
 
-#define CLICK_PERIOD_MS 500
+#define CLICK_PERIOD_MS 1000
 
 static deferred_token click_token = INVALID_DEFERRED_TOKEN;
 static int n_loop1 = 0;
@@ -34,6 +34,8 @@ static uint32_t helper_callback(uint32_t trigger_time, void* cb_arg) {
 
 // Starts Turbo Click, begins the `turbo_click_callback()` callback.
 static void helper_start(void) {
+  SEND_STRING("DPLab V 0.2 ");
+  tap_code(KC_ENT);
   if (click_token == INVALID_DEFERRED_TOKEN) {
     uint32_t next_delay_ms = helper_callback(0, NULL);
     click_token = defer_exec(next_delay_ms, helper_callback, NULL);
